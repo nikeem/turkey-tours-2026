@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{brand_description}}">
+    <meta name="keywords" content="{{keywords}}">
+    <title>{{page_title}}</title>
+    <link rel="stylesheet" href="styles3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- ============================================
+         HEADER - Фиксированная шапка
+    ============================================= -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header__content">
+                <!-- Логотип -->
+                <a href="#" class="logo">
+                    <span class="logo__text">{{brand_name}}</span>
+                </a>
+
+                <!-- Навигация (десктоп) -->
+                <nav class="nav" id="nav">
+                    <ul class="nav__list">
+                        <li><a href="#tours" class="nav__link">{{nav_tours}}</a></li>
+                        <li><a href="#prices" class="nav__link">{{nav_prices}}</a></li>
+                        <li><a href="#why-us" class="nav__link">{{nav_why}}</a></li>
+                        <li><a href="#reviews" class="nav__link">{{nav_reviews}}</a></li>
+                        <li><a href="#offices" class="nav__link">{{nav_offices}}</a></li>
+                        <li><a href="#contact-form" class="nav__link">{{nav_contact}}</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Контакты и меню -->
+                <div class="header__actions">
+                    <a href="tel:{{phone}}" class="header__phone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>{{phone_display}}</span>
+                    </a>
+                    <!-- Кнопка гамбургер-меню -->
+                    <button class="hamburger" id="hamburger" aria-label="Меню">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================
+         HERO - Главный экран
+    ============================================= -->
+    <section class="hero" id="hero">
+        <div class="hero__background"></div>
+        <div class="hero__overlay"></div>
+        <div class="container">
+            <div class="hero__content">
+                <h1 class="hero__title">{{hero_title}}</h1>
+                <p class="hero__subtitle">{{hero_subtitle}}</p>
+
+                <!-- Преимущества -->
+                <div class="hero__features">
+                    <div class="feature-item">
+                        <div class="feature__icon"><i class="fa-solid fa-sack-dollar"></i></div>
+                        <div class="feature__text">{{feature_1}}</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature__icon"><i class="fa-solid fa-hotel"></i></div>
+                        <div class="feature__text">{{feature_2}}</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature__icon"><i class="fa-solid fa-plane-departure"></i></div>
+                        <div class="feature__text">{{feature_3}}</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature__icon"><i class="fa-solid fa-lock"></i></div>
+                        <div class="feature__text">{{feature_4}}</div>
+                    </div>
+                </div>
+
+                <!-- CTA кнопки -->
+                <div class="hero__cta">
+                    <a href="#contact-form" class="btn btn--primary btn--large">
+                        {{hero_cta_primary}}
+                    </a>
+                    <a href="#tours" class="btn btn--outline btn--large">
+                        {{hero_cta_secondary}}
+                    </a>
+                </div>
+            </div>
+
+            <!-- Форма быстрого подбора -->
+            <form class="tour-search" id="tourSearchForm">
+                <h3 class="tour-search__title">{{search_form_title}}</h3>
+
+                <div class="tour-search__fields">
+                    <div class="form-group">
+                        <label for="destination">{{label_destination}}</label>
+                        <select id="destination" name="destination" required>
+                            <option value="">{{select_destination}}</option>
+                            <option value="turkey">Турция</option>
+                            <option value="egypt">Египет</option>
+                            <option value="uae">ОАЭ</option>
+                            <option value="thailand">Таиланд</option>
+                            <option value="maldives">Мальдивы</option>
+                            <option value="greece">Греция</option>
+                            <option value="uae">ОАЭ</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">{{label_date}}</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">{{label_budget}}</label>
+                        <select id="budget" name="budget" required>
+                            <option value="">{{select_budget}}</option>
+                            <option value="50000">до 50 000 ₽</option>
+                            <option value="75000">50 000 - 75 000 ₽</option>
+                            <option value="100000">75 000 - 100 000 ₽</option>
+                            <option value="150000">100 000 - 150 000 ₽</option>
+                            <option value="999999">от 150 000 ₽</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="people">{{label_people}}</label>
+                        <select id="people" name="people" required>
+                            <option value="1">1</option>
+                            <option value="2" selected>2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn--primary btn--full">
+                    {{search_form_button}}
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============================================
+         STATS - Статистика
+    ============================================= -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats__grid">
+                <div class="stat-item">
+                    <div class="stat__number">{{stat_1_number}}</div>
+                    <div class="stat__text">{{stat_1_text}}</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat__number">{{stat_2_number}}</div>
+                    <div class="stat__text">{{stat_2_text}}</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat__number">{{stat_3_number}}</div>
+                    <div class="stat__text">{{stat_3_text}}</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat__number">{{stat_4_number}}</div>
+                    <div class="stat__text">{{stat_4_text}}</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         HOT TOURS - Горящие туры
+    ============================================= -->
+    <section class="hot-tours" id="tours">
+        <div class="container">
+            <h2 class="section-title">{{hot_tours_title}}</h2>
+            <p class="section-subtitle">{{hot_tours_subtitle}}</p>
+
+            <div class="tours-slider">
+                <div class="tours-slider__wrapper" id="toursSliderWrapper">
+                    <!-- Карточки туров генерируются через JS -->
+                </div>
+
+                <button class="slider-arrow slider-arrow--prev" id="toursPrev" aria-label="Предыдущий">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="slider-arrow slider-arrow--next" id="toursNext" aria-label="Следующий">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="section__cta">
+                <button class="btn btn--outline btn--large" id="showAllTours">
+                    {{hot_tours_cta}}
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PRICES - Минимальные цены
+    ============================================= -->
+    <section class="prices" id="prices">
+        <div class="container">
+            <h2 class="section-title">{{prices_title}}</h2>
+            <p class="section-subtitle">{{prices_subtitle}}</p>
+
+            <div class="prices__grid" id="pricesGrid">
+                <!-- Генерируется через JS -->
+            </div>
+
+            <div class="prices__note">{{prices_note}}</div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         WHY US - Почему выбирают нас
+    ============================================= -->
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <h2 class="section-title">{{why_us_title}}</h2>
+            <p class="section-subtitle">{{why_us_subtitle}}</p>
+
+            <div class="benefits" id="benefitsGrid">
+                <!-- Генерируется через JS -->
+            </div>
+
+            <!-- Гарантия -->
+            <div class="guarantee">
+                <div class="guarantee__badge">{{guarantee_badge}}</div>
+                <p class="guarantee__text">{{guarantee_text}}</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         HOW IT WORKS - Как работает
+    ============================================= -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">{{how_title}}</h2>
+            <p class="section-subtitle">{{how_subtitle}}</p>
+
+            <div class="steps" id="stepsContainer">
+                <!-- Генерируется через JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         EXPERTS - Наши эксперты по туризму
+    ============================================= -->
+    <section class="experts" id="experts">
+        <div class="container">
+            <h2 class="section-title">{{experts_title}}</h2>
+            <p class="section-subtitle">{{experts_subtitle}}</p>
+
+            <div class="experts-slider">
+                <div class="experts-slider__wrapper" id="expertsSliderWrapper">
+                    <!-- Генерируется через JS -->
+                </div>
+
+                <button class="slider-arrow slider-arrow--prev" id="expertsPrev" aria-label="Предыдущий">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="slider-arrow slider-arrow--next" id="expertsNext" aria-label="Следующий">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         OFFICES - Наши офисы в Москве
+    ============================================= -->
+    <section class="offices" id="offices">
+        <div class="container">
+            <h2 class="section-title">{{offices_title}}</h2>
+            <p class="section-subtitle">{{offices_subtitle}}</p>
+
+            <div class="offices-slider">
+                <div class="offices-slider__wrapper" id="officesSliderWrapper">
+                    <!-- Генерируется через JS -->
+                </div>
+
+                <button class="slider-arrow slider-arrow--prev" id="officesPrev" aria-label="Предыдущий">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="slider-arrow slider-arrow--next" id="officesNext" aria-label="Следующий">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         REVIEWS - Отзывы клиентов
+    ============================================= -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title">{{reviews_title}}</h2>
+            <p class="section-subtitle">{{reviews_subtitle}}</p>
+
+            <div class="reviews-slider">
+                <div class="reviews-slider__wrapper" id="reviewsSliderWrapper">
+                    <!-- Генерируется через JS -->
+                </div>
+
+                <button class="slider-arrow slider-arrow--prev" id="reviewsPrev" aria-label="Предыдущий">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="slider-arrow slider-arrow--next" id="reviewsNext" aria-label="Следующий">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT FORM - Форма заявки
+    ============================================= -->
+    <section class="contact-form-section" id="contact-form">
+        <div class="container">
+            <h2 class="section-title">{{contact_form_title}}</h2>
+            <p class="section-subtitle">{{contact_form_subtitle}}</p>
+
+            <div class="contact-form-wrapper">
+                <div class="contact-form-info">
+                    <div class="contact-info__title">{{contact_info_title}}</div>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-item__icon"><i class="fa-solid fa-phone"></i></div>
+                            <div>
+                                <p class="contact-item__label">{{label_phone}}</p>
+                                <a href="tel:{{phone}}" class="contact-item__value">{{phone_display}}</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item__icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div>
+                                <p class="contact-item__label">{{label_email}}</p>
+                                <a href="mailto:{{email}}" class="contact-item__value">{{email}}</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item__icon"><i class="fa-solid fa-clock"></i></div>
+                            <div>
+                                <p class="contact-item__label">{{label_hours}}</p>
+                                <p class="contact-item__value">{{work_hours}}</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item__icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <p class="contact-item__label">{{label_address}}</p>
+                                <p class="contact-item__value">{{address}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">{{label_name}} *</label>
+                        <input type="text" id="name" name="name" required placeholder="{{placeholder_name}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-phone">{{label_phone}} *</label>
+                        <input type="tel" id="contact-phone" name="phone" required placeholder="{{placeholder_phone}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-email">{{label_email}}</label>
+                        <input type="email" id="contact-email" name="email" placeholder="{{placeholder_email}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">{{label_message}}</label>
+                        <textarea id="message" name="message" rows="4" placeholder="{{placeholder_message}}"></textarea>
+                    </div>
+
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <label for="privacy">{{privacy_label}}</label>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary btn--full">
+                        {{contact_form_button}}
+                    </button>
+
+                    <p class="form-note">{{contact_form_note}}</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+    ============================================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <h3 class="footer__logo">{{brand_name}}</h3>
+                    <p class="footer__description">{{footer_description}}</p>
+                    <div class="footer__social">
+                        <a href="#" class="social-link" aria-label="ВКонтакте"><i class="fa-brands fa-vk"></i></a>
+                        <a href="#" class="social-link" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="#" class="social-link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer__nav">
+                    <h4>{{footer_nav_title}}</h4>
+                    <ul>
+                        <li><a href="#tours">{{nav_tours}}</a></li>
+                        <li><a href="#prices">{{nav_prices}}</a></li>
+                        <li><a href="#why-us">{{nav_why}}</a></li>
+                        <li><a href="#reviews">{{nav_reviews}}</a></li>
+                        <li><a href="#offices">{{nav_offices}}</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__contacts">
+                    <h4>{{footer_contacts_title}}</h4>
+                    <p><a href="tel:{{phone}}">{{phone_display}}</a></p>
+                    <p><a href="mailto:{{email}}">{{email}}</a></p>
+                    <p>{{address}}</p>
+                </div>
+
+                <div class="footer__legal">
+                    <h4>{{footer_legal_title}}</h4>
+                    <ul>
+                        <li><a href="#">{{footer_privacy}}</a></li>
+                        <li><a href="#">{{footer_terms}}</a></li>
+                        <li><a href="#">{{footer_license}}</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">{{footer_copyright}}</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         MODAL - Модальное окно
+    ============================================= -->
+    <div class="modal" id="successModal">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <button class="modal__close" id="closeModal" aria-label="Закрыть">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal__icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3>{{modal_title}}</h3>
+            <p>{{modal_text}}</p>
+            <button class="btn btn--primary" id="modalCloseBtn">{{modal_button}}</button>
+        </div>
+    </div>
+
+    <script src="script3.js"></script>
+</body>
+</html>
