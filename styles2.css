@@ -1,0 +1,1114 @@
+/* ============================================
+   Кастомизация через переменные
+   Измените эти значения для вашего бренда
+============================================ */
+:root {
+    /* Цвета бренда */
+    --primary-color: #2563eb;        /* Основной синий - кнопки, акценты */
+    --primary-hover: #1d4ed8;        /* Основной при наведении */
+    --secondary-color: #f59e0b;      /* Вторичный оранжевый - бейджи, скидки */
+
+    /* Фоны */
+    --bg-dark: #1e293b;              /* Тёмный фон */
+    --bg-light: #ffffff;             /* Светлый фон */
+    --bg-gray: #f8fafc;              /* Серый фон секций */
+    --bg-overlay: rgba(0,0,0,0.5);   /* Затемнение */
+
+    /* Текст */
+    --text-primary: #1e293b;         /* Основной текст */
+    --text-secondary: #64748b;       /* Вторичный текст */
+    --text-light: #94a3b8;           /* Светлый текст */
+    --text-white: #ffffff;           /* Белый текст */
+
+    /* Отступы */
+    --container-width: 1200px;       /* Ширина контейнера */
+    --section-padding: 80px 0;       /* Отступы секций */
+    --border-radius: 12px;           /* Скругление углов */
+
+    /* Шрифты */
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+
+    /* Анимации */
+    --transition: all 0.3s ease;     /* Плавные переходы */
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);  /* Тень */
+    --shadow-lg: 0 10px 25px rgba(0,0,0,0.15); /* Большая тень */
+}
+
+/* ============================================
+   Базовые стили и сброс
+============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Заголовки секций */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.btn--primary {
+    background: var(--primary-color);
+    color: var(--text-white);
+}
+
+.btn--primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn--secondary {
+    background: var(--primary-color);
+    color: var(--text-white);
+    width: 100%;
+}
+
+.btn--secondary:hover {
+    background: var(--primary-hover);
+}
+
+.btn--outline {
+    background: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn--outline:hover {
+    background: var(--primary-color);
+    color: var(--text-white);
+}
+
+.btn--large {
+    padding: 16px 48px;
+    font-size: 1.125rem;
+}
+
+/* ============================================
+   HEADER - Шапка сайта
+============================================ */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-light);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.header__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nav__list {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav__link {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.nav__link:hover {
+    color: var(--primary-color);
+}
+
+.header__phone {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-right: 1rem;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--text-primary);
+    transition: var(--transition);
+}
+
+/* ============================================
+   HERO - Главный экран
+============================================ */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    overflow: hidden;
+}
+
+.hero__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1920&q=80') center/cover;
+    opacity: 0.2;
+}
+
+.hero__content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero__title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-white);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero__subtitle {
+    font-size: 1.25rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 2rem;
+}
+
+/* Форма подбора тура */
+.tour-search {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+}
+
+.tour-search__title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.tour-search__fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.tour-search__note {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* ============================================
+   HOT TOURS - Горящие туры
+============================================ */
+.hot-tours {
+    padding: var(--section-padding);
+    background: var(--bg-gray);
+}
+
+.tours-slider {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.tours-slider__wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    overflow: hidden;
+}
+
+.tour-card {
+    background: var(--bg-light);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.tour-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.tour-card__image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.tour-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tour-card__badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--secondary-color);
+    color: var(--text-white);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.tour-card__content {
+    padding: 1.5rem;
+}
+
+.tour-card__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.tour-card__location {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.tour-card__info {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.tour-card__price {
+    margin-bottom: 1rem;
+}
+
+.tour-card__price-old {
+    text-decoration: line-through;
+    color: var(--text-light);
+    font-size: 0.875rem;
+    margin-right: 0.5rem;
+}
+
+.tour-card__price-current {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.hot-tours__cta {
+    text-align: center;
+}
+
+/* ============================================
+   PRICES - Минимальные цены
+============================================ */
+.prices {
+    padding: var(--section-padding);
+}
+
+.prices__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.price-card {
+    background: var(--bg-gray);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.price-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+.price-card__icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.price-card__country {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.price-card__value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.price-card__note {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.prices__cta {
+    text-align: center;
+}
+
+.prices__text {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+/* ============================================
+   WHY US - Почему мы
+============================================ */
+.why-us {
+    padding: var(--section-padding);
+    background: var(--bg-gray);
+}
+
+.benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.benefit {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.benefit:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+.benefit__icon {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.benefit__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.benefit__text {
+    color: var(--text-secondary);
+}
+
+.guarantee {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    color: var(--text-white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.guarantee__badge {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.guarantee__text {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* ============================================
+   REVIEWS - Отзывы
+============================================ */
+.reviews {
+    padding: var(--section-padding);
+}
+
+.reviews-slider {
+    position: relative;
+}
+
+.reviews-slider__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.review-card {
+    background: var(--bg-gray);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.review-card:hover {
+    box-shadow: var(--shadow);
+}
+
+.review-card__rating {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.review-card__text {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.review-card__author {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.review-card__avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.review-card__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.review-card__name {
+    font-weight: 600;
+}
+
+.review-card__tour {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+/* ============================================
+   HOW IT WORKS - Как это работает
+============================================ */
+.how-it-works {
+    padding: var(--section-padding);
+    background: var(--bg-gray);
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.step__number {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-color);
+    color: var(--text-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+}
+
+.step__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.step__text {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+/* ============================================
+   CONTACT FORM - Форма заявки
+============================================ */
+.contact-form-section {
+    padding: var(--section-padding);
+}
+
+.contact-form-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.contact-form-info__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-form-info__text {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.contact-item__icon {
+    font-size: 1.5rem;
+}
+
+.contact-item__label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+}
+
+.contact-item__value {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.contact-form {
+    background: var(--bg-gray);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+}
+
+.contact-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-checkbox input[type="checkbox"] {
+    width: auto;
+}
+
+.form-checkbox label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.form-note {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* ============================================
+   FOOTER - Подвал
+============================================ */
+.footer {
+    background: var(--bg-dark);
+    color: var(--text-white);
+    padding: 4rem 0 2rem;
+}
+
+.footer__content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer__logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.footer__description {
+    color: rgba(255,255,255,0.7);
+}
+
+.footer h4 {
+    margin-bottom: 1rem;
+}
+
+.footer__nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer__nav a {
+    color: rgba(255,255,255,0.7);
+}
+
+.footer__nav a:hover {
+    color: var(--text-white);
+}
+
+.footer__contacts p {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 0.5rem;
+}
+
+.footer__contacts a {
+    color: var(--text-white);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.social-link:hover {
+    background: var(--primary-color);
+}
+
+.footer__bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__copyright {
+    color: rgba(255,255,255,0.7);
+}
+
+.footer__legal {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer__legal a {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.875rem;
+}
+
+/* ============================================
+   MODAL - Модальное окно
+============================================ */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-overlay);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal__content {
+    background: var(--bg-light);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    max-width: 500px;
+    position: relative;
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    line-height: 1;
+}
+
+.modal__icon {
+    width: 80px;
+    height: 80px;
+    background: #10b981;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    margin: 0 auto 1.5rem;
+}
+
+.modal h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.modal p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+/* ============================================
+   SLIDER ARROWS - Стрелки слайдера
+============================================ */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: var(--bg-light);
+    border: none;
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.slider-arrow:hover {
+    background: var(--primary-color);
+    color: var(--text-white);
+}
+
+.slider-arrow--prev {
+    left: -24px;
+}
+
+.slider-arrow--next {
+    right: -24px;
+}
+
+/* ============================================
+   Адаптивность для планшетов (768px+)
+============================================ */
+@media (max-width: 968px) {
+    .hero__content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero__title {
+        font-size: 2.5rem;
+    }
+
+    .tours-slider__wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .prices__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .benefits {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .reviews-slider__wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-form-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .footer__content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .steps {
+        flex-wrap: wrap;
+    }
+
+    .step {
+        flex: 1 1 calc(50% - 2rem);
+    }
+
+    .slider-arrow--prev {
+        left: 0;
+    }
+
+    .slider-arrow--next {
+        right: 0;
+    }
+}
+
+/* ============================================
+   Адаптивность для мобильных (до 768px)
+============================================ */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: var(--bg-light);
+        transition: var(--transition);
+        padding: 2rem;
+    }
+
+    .nav.active {
+        left: 0;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .header__phone {
+        display: none;
+    }
+
+    .hero__title {
+        font-size: 2rem;
+    }
+
+    .hero__subtitle {
+        font-size: 1rem;
+    }
+
+    .tour-search__fields {
+        grid-template-columns: 1fr;
+    }
+
+    .tours-slider__wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .prices__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefits {
+        grid-template-columns: 1fr;
+    }
+
+    .reviews-slider__wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .step {
+        flex: 1 1 100%;
+    }
+
+    .footer__content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer__bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .footer__legal {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .slider-arrow {
+        display: none;
+    }
+}
+
+/* ============================================
+   Адаптивность для маленьких мобильных (до 480px)
+============================================ */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .hero__title {
+        font-size: 1.75rem;
+    }
+
+    .tour-search {
+        padding: 1.5rem;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .modal__content {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+    }
+}

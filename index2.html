@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{brand_name}} - подбор идеального тура онлайн. Горящие туры, минимальные цены, гарантия качества.">
+    <meta name="keywords" content="туры, путешествия, горящие туры, отпуск, {{brand_name}}">
+    <title>{{brand_name}} - Подбор идеального тура онлайн</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <!-- ============================================
+         HEADER - Фиксированная шапка
+         Изменить: логотип, телефон, навигацию
+    ============================================= -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header__content">
+                <!-- Логотип -->
+                <a href="#" class="logo">
+                    <span class="logo__text">{{brand_name}}</span>
+                </a>
+
+                <!-- Навигация (десктоп) -->
+                <nav class="nav" id="nav">
+                    <ul class="nav__list">
+                        <li><a href="#hot-tours" class="nav__link">Горящие туры</a></li>
+                        <li><a href="#prices" class="nav__link">Минимальные цены</a></li>
+                        <li><a href="#why-us" class="nav__link">Почему мы</a></li>
+                        <li><a href="#reviews" class="nav__link">Отзывы</a></li>
+                        <li><a href="#contact-form" class="nav__link">Заявка</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Контакты -->
+                <div class="header__contacts">
+                    <a href="tel:{{phone}}" class="header__phone">{{phone_display}}</a>
+                    <!-- Кнопка гамбургер-меню (мобильная) -->
+                    <button class="hamburger" id="hamburger" aria-label="Меню">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================
+         HERO SECTION - Главный экран с формой
+         Изменить: заголовки, форму подбора
+    ============================================= -->
+    <section class="hero" id="hero">
+        <div class="hero__background"></div>
+        <div class="container">
+            <div class="hero__content">
+                <!-- Заголовок и подзаголовок -->
+                <div class="hero__text">
+                    <h1 class="hero__title">{{hero_title}}</h1>
+                    <p class="hero__subtitle">{{hero_subtitle}}</p>
+                </div>
+
+                <!-- Форма быстрого подбора тура -->
+                <form class="tour-search" id="tourSearchForm">
+                    <h3 class="tour-search__title">Подобрать тур</h3>
+
+                    <div class="tour-search__fields">
+                        <!-- Направление -->
+                        <div class="form-group">
+                            <label for="destination">Направление</label>
+                            <select id="destination" name="destination" required>
+                                <option value="">Выберите страну</option>
+                                <option value="turkey">Турция</option>
+                                <option value="egypt">Египет</option>
+                                <option value="uae">ОАЭ</option>
+                                <option value="thailand">Таиланд</option>
+                                <option value="maldives">Мальдивы</option>
+                                <option value="greece">Греция</option>
+                            </select>
+                        </div>
+
+                        <!-- Даты вылета -->
+                        <div class="form-group">
+                            <label for="date">Дата вылета</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+
+                        <!-- Бюджет -->
+                        <div class="form-group">
+                            <label for="budget">Бюджет (₽)</label>
+                            <select id="budget" name="budget" required>
+                                <option value="">Выберите бюджет</option>
+                                <option value="50000">до 50 000 ₽</option>
+                                <option value="75000">50 000 - 75 000 ₽</option>
+                                <option value="100000">75 000 - 100 000 ₽</option>
+                                <option value="150000">100 000 - 150 000 ₽</option>
+                                <option value="999999">от 150 000 ₽</option>
+                            </select>
+                        </div>
+
+                        <!-- Количество человек -->
+                        <div class="form-group">
+                            <label for="people">Чел.</label>
+                            <select id="people" name="people" required>
+                                <option value="1">1</option>
+                                <option value="2" selected>2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5+</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- CTA кнопка -->
+                    <button type="submit" class="btn btn--primary btn--large">
+                        {{hero_cta_button}}
+                    </button>
+
+                    <p class="tour-search__note">
+                        {{hero_note}}
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         HOT TOURS - Горящие туры / Топ предложения
+         Изменить: карточки туров, цены, изображения
+    ============================================= -->
+    <section class="hot-tours" id="hot-tours">
+        <div class="container">
+            <h2 class="section-title">{{hot_tours_title}}</h2>
+            <p class="section-subtitle">{{hot_tours_subtitle}}</p>
+
+            <!-- Слайдер с турами -->
+            <div class="tours-slider" id="toursSlider">
+                <div class="tours-slider__wrapper">
+                    <!-- Карточка тура 1 -->
+                    <div class="tour-card">
+                        <div class="tour-card__image">
+                            <img src="https://images.unsplash.com/photo-1589561454226-7962d9d7b3e3?w=400&h=300&fit=crop" alt="Турция">
+                            <span class="tour-card__badge">Горящий тур</span>
+                        </div>
+                        <div class="tour-card__content">
+                            <h3 class="tour-card__title">{{tour_1_country}}</h3>
+                            <p class="tour-card__location">{{tour_1_resort}}</p>
+                            <div class="tour-card__info">
+                                <span class="tour-card__dates">{{tour_1_dates}}</span>
+                                <span class="tour-card__duration">{{tour_1_duration}}</span>
+                            </div>
+                            <div class="tour-card__price">
+                                <span class="tour-card__price-old">{{tour_1_price_old}}</span>
+                                <span class="tour-card__price-current">{{tour_1_price}}</span>
+                            </div>
+                            <button class="btn btn--secondary tour-card__btn" data-tour="Турция">
+                                Забронировать
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Карточка тура 2 -->
+                    <div class="tour-card">
+                        <div class="tour-card__image">
+                            <img src="https://images.unsplash.com/photo-1539768942893-daf53e448393?w=400&h=300&fit=crop" alt="Египет">
+                            <span class="tour-card__badge">-25%</span>
+                        </div>
+                        <div class="tour-card__content">
+                            <h3 class="tour-card__title">{{tour_2_country}}</h3>
+                            <p class="tour-card__location">{{tour_2_resort}}</p>
+                            <div class="tour-card__info">
+                                <span class="tour-card__dates">{{tour_2_dates}}</span>
+                                <span class="tour-card__duration">{{tour_2_duration}}</span>
+                            </div>
+                            <div class="tour-card__price">
+                                <span class="tour-card__price-old">{{tour_2_price_old}}</span>
+                                <span class="tour-card__price-current">{{tour_2_price}}</span>
+                            </div>
+                            <button class="btn btn--secondary tour-card__btn" data-tour="Египет">
+                                Забронировать
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Карточка тура 3 -->
+                    <div class="tour-card">
+                        <div class="tour-card__image">
+                            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop" alt="ОАЭ">
+                        </div>
+                        <div class="tour-card__content">
+                            <h3 class="tour-card__title">{{tour_3_country}}</h3>
+                            <p class="tour-card__location">{{tour_3_resort}}</p>
+                            <div class="tour-card__info">
+                                <span class="tour-card__dates">{{tour_3_dates}}</span>
+                                <span class="tour-card__duration">{{tour_3_duration}}</span>
+                            </div>
+                            <div class="tour-card__price">
+                                <span class="tour-card__price-current">{{tour_3_price}}</span>
+                            </div>
+                            <button class="btn btn--secondary tour-card__btn" data-tour="ОАЭ">
+                                Забронировать
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Карточка тура 4 -->
+                    <div class="tour-card">
+                        <div class="tour-card__image">
+                            <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=400&h=300&fit=crop" alt="Таиланд">
+                            <span class="tour-card__badge">Популярный</span>
+                        </div>
+                        <div class="tour-card__content">
+                            <h3 class="tour-card__title">{{tour_4_country}}</h3>
+                            <p class="tour-card__location">{{tour_4_resort}}</p>
+                            <div class="tour-card__info">
+                                <span class="tour-card__dates">{{tour_4_dates}}</span>
+                                <span class="tour-card__duration">{{tour_4_duration}}</span>
+                            </div>
+                            <div class="tour-card__price">
+                                <span class="tour-card__price-current">{{tour_4_price}}</span>
+                            </div>
+                            <button class="btn btn--secondary tour-card__btn" data-tour="Таиланд">
+                                Забронировать
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Кнопки навигации слайдера -->
+                <button class="slider-arrow slider-arrow--prev" id="sliderPrev" aria-label="Предыдущий">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <button class="slider-arrow slider-arrow--next" id="sliderNext" aria-label="Следующий">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Кнопка "Показать все туры" -->
+            <div class="hot-tours__cta">
+                <button class="btn btn--outline btn--large" id="showAllTours">
+                    {{hot_tours_cta}}
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MINIMAL PRICES - Минимальные цены
+         Изменить: направления и цены
+    ============================================= -->
+    <section class="prices" id="prices">
+        <div class="container">
+            <h2 class="section-title">{{prices_title}}</h2>
+            <p class="section-subtitle">{{prices_subtitle}}</p>
+
+            <div class="prices__grid">
+                <!-- Карточка цены 1 -->
+                <div class="price-card">
+                    <div class="price-card__icon">🇹🇷</div>
+                    <h3 class="price-card__country">{{price_1_country}}</h3>
+                    <div class="price-card__value">
+                        от {{price_1_value}} ₽
+                    </div>
+                    <p class="price-card__note">{{price_1_note}}</p>
+                </div>
+
+                <!-- Карточка цены 2 -->
+                <div class="price-card">
+                    <div class="price-card__icon">🇪🇬</div>
+                    <h3 class="price-card__country">{{price_2_country}}</h3>
+                    <div class="price-card__value">
+                        от {{price_2_value}} ₽
+                    </div>
+                    <p class="price-card__note">{{price_2_note}}</p>
+                </div>
+
+                <!-- Карточка цены 3 -->
+                <div class="price-card">
+                    <div class="price-card__icon">🇦🇪</div>
+                    <h3 class="price-card__country">{{price_3_country}}</h3>
+                    <div class="price-card__value">
+                        от {{price_3_value}} ₽
+                    </div>
+                    <p class="price-card__note">{{price_3_note}}</p>
+                </div>
+
+                <!-- Карточка цены 4 -->
+                <div class="price-card">
+                    <div class="price-card__icon">🇹🇭</div>
+                    <h3 class="price-card__country">{{price_4_country}}</h3>
+                    <div class="price-card__value">
+                        от {{price_4_value}} ₽
+                    </div>
+                    <p class="price-card__note">{{price_4_note}}</p>
+                </div>
+
+                <!-- Карточка цены 5 -->
+                <div class="price-card">
+                    <div class="price-card__icon">🇲🇻</div>
+                    <h3 class="price-card__country">{{price_5_country}}</h3>
+                    <div class="price-card__value">
+                        от {{price_5_value}} ₽
+                    </div>
+                    <p class="price-card__note">{{price_5_note}}</p>
+                </div>
+
+                <!-- Карточка цены 6 -->
+                <div class="price-card">
+                    <div class="price-card__icon">🇬🇷</div>
+                    <h3 class="price-card__country">{{price_6_country}}</h3>
+                    <div class="price-card__value">
+                        от {{price_6_value}} ₽
+                    </div>
+                    <p class="price-card__note">{{price_6_note}}</p>
+                </div>
+            </div>
+
+            <div class="prices__cta">
+                <p class="prices__text">{{prices_note}}</p>
+                <a href="#contact-form" class="btn btn--primary">
+                    Узнать точную цену
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         WHY US - Почему выбирают нас
+         Изменить: преимущества, иконки, описания
+    ============================================= -->
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <h2 class="section-title">{{why_us_title}}</h2>
+            <p class="section-subtitle">{{why_us_subtitle}}</p>
+
+            <div class="benefits">
+                <!-- Преимущество 1 -->
+                <div class="benefit">
+                    <div class="benefit__icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="benefit__title">{{benefit_1_title}}</h3>
+                    <p class="benefit__text">{{benefit_1_text}}</p>
+                </div>
+
+                <!-- Преимущество 2 -->
+                <div class="benefit">
+                    <div class="benefit__icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="benefit__title">{{benefit_2_title}}</h3>
+                    <p class="benefit__text">{{benefit_2_text}}</p>
+                </div>
+
+                <!-- Преимущество 3 -->
+                <div class="benefit">
+                    <div class="benefit__icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                            <line x1="1" y1="10" x2="23" y2="10"></line>
+                        </svg>
+                    </div>
+                    <h3 class="benefit__title">{{benefit_3_title}}</h3>
+                    <p class="benefit__text">{{benefit_3_text}}</p>
+                </div>
+
+                <!-- Преимущество 4 -->
+                <div class="benefit">
+                    <div class="benefit__icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="benefit__title">{{benefit_4_title}}</h3>
+                    <p class="benefit__text">{{benefit_4_text}}</p>
+                </div>
+
+                <!-- Преимущество 5 -->
+                <div class="benefit">
+                    <div class="benefit__icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="benefit__title">{{benefit_5_title}}</h3>
+                    <p class="benefit__text">{{benefit_5_text}}</p>
+                </div>
+
+                <!-- Преимущество 6 -->
+                <div class="benefit">
+                    <div class="benefit__icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                        </svg>
+                    </div>
+                    <h3 class="benefit__title">{{benefit_6_title}}</h3>
+                    <p class="benefit__text">{{benefit_6_text}}</p>
+                </div>
+            </div>
+
+            <!-- Гарантия -->
+            <div class="guarantee">
+                <div class="guarantee__badge">{{guarantee_badge}}</div>
+                <p class="guarantee__text">{{guarantee_text}}</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         REVIEWS - Отзывы клиентов
+         Изменить: отзывы, имена, рейтинги
+    ============================================= -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title">{{reviews_title}}</h2>
+            <p class="section-subtitle">{{reviews_subtitle}}</p>
+
+            <!-- Слайдер отзывов -->
+            <div class="reviews-slider" id="reviewsSlider">
+                <div class="reviews-slider__wrapper">
+                    <!-- Отзыв 1 -->
+                    <div class="review-card">
+                        <div class="review-card__rating">
+                            {{review_1_rating}}
+                        </div>
+                        <p class="review-card__text">{{review_1_text}}</p>
+                        <div class="review-card__author">
+                            <div class="review-card__avatar">
+                                <img src="https://i.pravatar.cc/100?img=1" alt="{{review_1_name}}">
+                            </div>
+                            <div>
+                                <p class="review-card__name">{{review_1_name}}</p>
+                                <p class="review-card__tour">{{review_1_tour}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 2 -->
+                    <div class="review-card">
+                        <div class="review-card__rating">
+                            {{review_2_rating}}
+                        </div>
+                        <p class="review-card__text">{{review_2_text}}</p>
+                        <div class="review-card__author">
+                            <div class="review-card__avatar">
+                                <img src="https://i.pravatar.cc/100?img=5" alt="{{review_2_name}}">
+                            </div>
+                            <div>
+                                <p class="review-card__name">{{review_2_name}}</p>
+                                <p class="review-card__tour">{{review_2_tour}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 3 -->
+                    <div class="review-card">
+                        <div class="review-card__rating">
+                            {{review_3_rating}}
+                        </div>
+                        <p class="review-card__text">{{review_3_text}}</p>
+                        <div class="review-card__author">
+                            <div class="review-card__avatar">
+                                <img src="https://i.pravatar.cc/100?img=9" alt="{{review_3_name}}">
+                            </div>
+                            <div>
+                                <p class="review-card__name">{{review_3_name}}</p>
+                                <p class="review-card__tour">{{review_3_tour}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 4 -->
+                    <div class="review-card">
+                        <div class="review-card__rating">
+                            {{review_4_rating}}
+                        </div>
+                        <p class="review-card__text">{{review_4_text}}</p>
+                        <div class="review-card__author">
+                            <div class="review-card__avatar">
+                                <img src="https://i.pravatar.cc/100?img=12" alt="{{review_4_name}}">
+                            </div>
+                            <div>
+                                <p class="review-card__name">{{review_4_name}}</p>
+                                <p class="review-card__tour">{{review_4_tour}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 5 -->
+                    <div class="review-card">
+                        <div class="review-card__rating">
+                            {{review_5_rating}}
+                        </div>
+                        <p class="review-card__text">{{review_5_text}}</p>
+                        <div class="review-card__author">
+                            <div class="review-card__avatar">
+                                <img src="https://i.pravatar.cc/100?img=32" alt="{{review_5_name}}">
+                            </div>
+                            <div>
+                                <p class="review-card__name">{{review_5_name}}</p>
+                                <p class="review-card__tour">{{review_5_tour}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 6 -->
+                    <div class="review-card">
+                        <div class="review-card__rating">
+                            {{review_6_rating}}
+                        </div>
+                        <p class="review-card__text">{{review_6_text}}</p>
+                        <div class="review-card__author">
+                            <div class="review-card__avatar">
+                                <img src="https://i.pravatar.cc/100?img=44" alt="{{review_6_name}}">
+                            </div>
+                            <div>
+                                <p class="review-card__name">{{review_6_name}}</p>
+                                <p class="review-card__tour">{{review_6_tour}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Кнопки навигации -->
+                <button class="slider-arrow slider-arrow--prev" id="reviewsPrev" aria-label="Предыдущий">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <button class="slider-arrow slider-arrow--next" id="reviewsNext" aria-label="Следующий">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         HOW IT WORKS - Процедура работы
+         Изменить: шаги процесса
+    ============================================= -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">{{how_title}}</h2>
+            <p class="section-subtitle">{{how_subtitle}}</p>
+
+            <div class="steps">
+                <!-- Шаг 1 -->
+                <div class="step">
+                    <div class="step__number">1</div>
+                    <h3 class="step__title">{{step_1_title}}</h3>
+                    <p class="step__text">{{step_1_text}}</p>
+                </div>
+
+                <!-- Шаг 2 -->
+                <div class="step">
+                    <div class="step__number">2</div>
+                    <h3 class="step__title">{{step_2_title}}</h3>
+                    <p class="step__text">{{step_2_text}}</p>
+                </div>
+
+                <!-- Шаг 3 -->
+                <div class="step">
+                    <div class="step__number">3</div>
+                    <h3 class="step__title">{{step_3_title}}</h3>
+                    <p class="step__text">{{step_3_text}}</p>
+                </div>
+
+                <!-- Шаг 4 -->
+                <div class="step">
+                    <div class="step__number">4</div>
+                    <h3 class="step__title">{{step_4_title}}</h3>
+                    <p class="step__text">{{step_4_text}}</p>
+                </div>
+
+                <!-- Шаг 5 -->
+                <div class="step">
+                    <div class="step__number">5</div>
+                    <h3 class="step__title">{{step_5_title}}</h3>
+                    <p class="step__text">{{step_5_text}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT FORM - Форма обратной связи
+         Изменить: поля формы, тексты
+    ============================================= -->
+    <section class="contact-form-section" id="contact-form">
+        <div class="container">
+            <div class="contact-form-wrapper">
+                <div class="contact-form-info">
+                    <h2 class="contact-form-info__title">{{contact_form_title}}</h2>
+                    <p class="contact-form-info__text">{{contact_form_text}}</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-item__icon">📞</div>
+                            <div>
+                                <p class="contact-item__label">Телефон</p>
+                                <a href="tel:{{phone}}" class="contact-item__value">{{phone_display}}</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item__icon">✉️</div>
+                            <div>
+                                <p class="contact-item__label">Email</p>
+                                <a href="mailto:{{email}}" class="contact-item__value">{{email}}</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item__icon">🕐</div>
+                            <div>
+                                <p class="contact-item__label">Режим работы</p>
+                                <p class="contact-item__value">{{work_hours}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Форма заявки -->
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Имя *</label>
+                        <input type="text" id="name" name="name" required placeholder="Ваше имя">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-phone">Телефон *</label>
+                        <input type="tel" id="contact-phone" name="phone" required placeholder="+7 (___) ___-__-__">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Комментарий / Вопрос</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Расскажите о вашем желаемом отпуске..."></textarea>
+                    </div>
+
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <label for="privacy">
+                            Я согласен с <a href="#">политикой конфиденциальности</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary btn--large">
+                        {{contact_form_button}}
+                    </button>
+
+                    <p class="form-note">
+                        {{contact_form_note}}
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER - Подвал
+         Изменить: контакты, соцсети, лицензии
+    ============================================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <!-- Логотип и описание -->
+                <div class="footer__brand">
+                    <h3 class="footer__logo">{{brand_name}}</h3>
+                    <p class="footer__description">{{footer_description}}</p>
+                </div>
+
+                <!-- Навигация -->
+                <div class="footer__nav">
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="#hot-tours">Горящие туры</a></li>
+                        <li><a href="#prices">Минимальные цены</a></li>
+                        <li><a href="#why-us">Почему мы</a></li>
+                        <li><a href="#reviews">Отзывы</a></li>
+                        <li><a href="#contact-form">Заявка</a></li>
+                    </ul>
+                </div>
+
+                <!-- Контакты -->
+                <div class="footer__contacts">
+                    <h4>Контакты</h4>
+                    <p><a href="tel:{{phone}}">{{phone_display}}</a></p>
+                    <p><a href="mailto:{{email}}">{{email}}</a></p>
+                    <p>{{address}}</p>
+                </div>
+
+                <!-- Соцсети -->
+                <div class="footer__social">
+                    <h4>Мы в соцсетях</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="ВКонтакте" class="social-link">VK</a>
+                        <a href="#" aria-label="Telegram" class="social-link">TG</a>
+                        <a href="#" aria-label="WhatsApp" class="social-link">WA</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Нижняя часть футера -->
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    &copy; {{current_year}} {{brand_name}}. Все права защищены.
+                </p>
+                <div class="footer__legal">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Публичная оферта</a>
+                    <a href="#">Лицензии</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         MODAL - Модальное окно успешной отправки
+    ============================================= -->
+    <div class="modal" id="successModal">
+        <div class="modal__content">
+            <button class="modal__close" id="closeModal" aria-label="Закрыть">&times;</button>
+            <div class="modal__icon">✓</div>
+            <h3>{{modal_title}}</h3>
+            <p>{{modal_text}}</p>
+            <button class="btn btn--primary" id="modalCloseBtn">
+                Отлично!
+            </button>
+        </div>
+    </div>
+
+    <!-- Подключение JavaScript -->
+    <script src="script2.js"></script>
+
+    <!-- ============================================
+         CRM INTEGRATION - Место для скриптов CRM
+         Вставьте сюда код вашей CRM-системы
+         Пример: код от Roistat, Calltouch, etc.
+    ============================================= -->
+    <!-- CRM CODE PLACEHOLDER -->
+</body>
+</html>
